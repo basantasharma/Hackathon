@@ -25,10 +25,10 @@ configuration looks like this>>>>>>>>>	DocumentRoot "cloned_folder_path\public"	
 
 
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	FINALLY WE ARE GOOD TO GO	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+last:) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	FINALLY WE ARE GOOD TO GO	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	OPEN any browser type http://localhost in URL	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+rendering site >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	OPEN any browser type http://localhost in URL	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 URL looks like this>>>>>>>>>>>>>>>>	http://localhost	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
