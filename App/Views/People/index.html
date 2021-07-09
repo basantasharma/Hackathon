@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center; text-align: center;">
+    {% for details in user %}
+      <div class="col">
+        <div class="card text-dark bg-orange m-1 h-75" style=" border-radius: 20px;  align-items: center;">
+          <img src="/images/profile/{{ details.image }}" class="card-img-top bg-light" style="height: 300px;  width: 300px;  border-radius: 50%; object-fit: cover; align-items: center;" alt="...">
+          <div class="card-body " style="color: black;  border-radius:0px 0px 20px 20px ; width: 100%; background-color: orange; object-fit: contain;">
+            {% if current_user.id == details.id %}
+              <a class="logbtn" href="/profile/show">
+                <b class="card-title">{{ details.name }}</b>
+              </a>
+            {% else %}
+              <a class="logbtn" href="/people/profile-visit?id={{ details.id }}">
+                <b class="card-title">{{ details.name }}</b>
+              </a>
+            {% endif %}
+            <p class="card-text">
+              {{ details.gender }} <br>                
+              {{ details.email }}  <br>
+              {{ details.catogery }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

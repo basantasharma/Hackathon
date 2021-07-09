@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Message{% endblock %}
+
+{% block body %}
+
+    {% if msg %}
+        {% for msg in msgDetails %}
+        <div>
+            <h1>{{ msg.msg_text }}</h1>
+        </div>
+    
+        {% endfor %}
+    {% else %}
+        <h1>No message Available</h1>
+    {% endif %}
+{% endblock %}
