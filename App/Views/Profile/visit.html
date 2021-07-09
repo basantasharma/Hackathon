@@ -33,10 +33,12 @@
                 {% endif %}
                 {% if user.id == current_user.id %}
                     <a class="btn logbtn p-2" href="/profile/edit">Edit</a>
+                    <a class="btn logbtn" href="#">varify</a>
                 {% endif %}
             </dl>
             {% if user.id != current_user.id and current_user%}
-                <a class="btn logbtn" href="/message/show?id={{ user.id }}">Message</a>                
+                <a class="btn logbtn" href="/message/show?id={{ user.id }}">Message</a>
+                <a class="btn logbtn" href="#">varification status</a>                
             {% endif %}
             <a href="#" class="btn logbtn mx-3 p-2">Report</a>
         </div>
@@ -46,7 +48,7 @@
             <div>
                 {% for details in user_posts %}
                     {% if current_user.id == user.id %}
-                        <div class="card text-dark bg-warning mb-3">
+                        <div class="card text-dark bg-orange mb-3">
                             <div class="card-header">
                                 {% if current_user.id == details.user_id %}
                                     <a class="logbtn" href="/profile/show"><b>{{ details.name }}</b></a> posted on <b>{{ details.catogery }}</b>
@@ -63,7 +65,7 @@
                         </div>
                     {% else %}
                         {% if details.catogery == "Emergency Help"  %}
-                            <div class="card text-dark bg-warning mb-3">
+                            <div class="card text-dark bg-orange mb-3">
                                 <div class="card-header">
                                     <a class="logbtn" href="/people/profile-visit?id={{ details.user_id }}"><b>{{ user.name }}</b></a> posted on <b>{{ details.catogery }}</b>
                                 </div>
@@ -76,9 +78,9 @@
                         {% endif %}
                         {% if current_user %}
                             {% if current_user.catogery == "Signup as student" and details.catogery == "Seeking to invest" %}
-                                <div class="card text-dark bg-warning mb-3">
+                                <div class="card text-dark bg-orange mb-3">
                                     <div class="card-header">
-                                        <a href="/people/profile-visit?id={{ details.user_id }}"><b>{{ user.name }}</b></a> posted on <b>{{ details.catogery }}</b>
+                                        <a class="logbtn" href="/people/profile-visit?id={{ details.user_id }}"><b>{{ user.name }}</b></a> posted on <b>{{ details.catogery }}</b>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title">{{ details.title }}</h3>
@@ -89,7 +91,7 @@
                             {% endif %}
 
                             {% if current_user.catogery == "Signup as invester" and details.catogery == "Seeking for invester" %}
-                                <div class="card text-dark bg-warning mb-3">
+                                <div class="card text-dark bg-orange mb-3">
                                     <div class="card-header">
                                         <a class="logbtn" href="/people/profile-visit?id={{ details.user_id }}"><b>{{ user.name }}</b></a> posted on <b>{{ details.catogery }}</b>
                                     </div>

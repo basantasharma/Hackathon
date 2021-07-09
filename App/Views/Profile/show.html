@@ -34,7 +34,10 @@
                 {% endif %}
             </dl>
             {% if user.id != current_user.id %}
-                <a class="btn logbtn" href="#">Message</a>                
+            <a class="btn logbtn" href="#">Message</a>                
+            <a class="btn logbtn" href="#">Varification status</a>
+            {% else %}
+            <a class="btn logbtn" href="#">verify</a>                
             {% endif %}
             <a href="#" class="btn logbtn mx-3 p-2">Report</a>
         </div>
@@ -49,7 +52,7 @@
                 {% endif %}
                 {% for details in user_Posts %}
                     {% if details.user_id == current_user.id %}
-                        <div class="card text-dark bg-warning mb-3">
+                        <div class="card text-dark bg-orange mb-3">
                             <div class="card-header">
                                 <a class="logbtn" href="/people/profile-visit?id={{ details.user_id }}"><b>{{ details.name }}</b></a> posted on <b>{{ details.catogery }}</b>
                                 <a class="logbtn" href="/post/edit?post_id={{ details.id }}">edit</a>
