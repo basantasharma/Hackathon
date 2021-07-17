@@ -3,29 +3,31 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-  <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center; text-align: center;">
+  <!-- <div class="card-group m-auto my-2"> -->
     {% for details in user %}
-      <div class="col">
-        <div class="card text-dark bg-orange m-1 h-75" style=" border-radius: 20px;  align-items: center;">
-          <img src="/images/profile/{{ details.image }}" class="card-img-top bg-light" style="height: 300px;  width: 300px;  border-radius: 50%; object-fit: cover; align-items: center;" alt="...">
-          <div class="card-body " style="color: black;  border-radius:0px 0px 20px 20px ; width: 100%; background-color: orange; object-fit: contain;">
-            {% if current_user.id == details.id %}
-              <a class="logbtn" href="/profile/show">
-                <b class="card-title">{{ details.name }}</b>
-              </a>
-            {% else %}
-              <a class="logbtn" href="/people/profile-visit?id={{ details.id }}">
-                <b class="card-title">{{ details.name }}</b>
-              </a>
-            {% endif %}
-            <p class="card-text">
-              {{ details.gender }} <br>                
-              {{ details.email }}  <br>
-              {{ details.catogery }}
-            </p>
+      <div class="row my-2">
+        <div class="card" >
+          <div class="row">
+            <div class="col-1 mx-1 my-auto p-0">
+              <img src="/images/profile/{{ details.image }}" class="img-fluid" style="border-radius: 50%;" alt="...">
+            </div>
+            <div class="col p-0 my-auto">
+              <div class="card-body p-1" style="font-size: 10px;">
+                {% if current_user.id == details.id %}
+                  <a class="card-title" href="/profile/show"> <b style="font-size: 10px; text-align: left;">{{ details.name }}</b></a>
+                {% else %}
+                  <a class="card-title" href="/people/profile-visit?id={{ details.id }}"><b style="font-size: 10px;">{{ details.name }}</b></a>
+                {% endif %}
+                <p class="card-text">
+                  {{ details.gender }} <br>                
+                  {{ details.email }}  <br>
+                  {{ details.catogery }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     {% endfor %}
-  </div>
+  <!-- </div> -->
 {% endblock %}
