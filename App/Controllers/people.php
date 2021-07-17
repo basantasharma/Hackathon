@@ -19,14 +19,14 @@ class People extends \Core\Controller
         {
             $searched = $_GET['search'];
             $user_details = User::search($searched);
-            View::renderTemplate('/people/index.html', [
+            View::renderTemplate('People/index.html', [
                 'searched' => $searched,
                 'user' => $user_details
             ]);   
         }
         else
         {
-            $this->redirect('/post/show');
+            $this->redirect('/post/emergency');
         }
     }
 

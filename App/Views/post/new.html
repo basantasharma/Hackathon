@@ -6,52 +6,51 @@
 
 {% block body %}
    
-    <div class="w-50  mx-auto border p-4 my-4">
+    {# <div class="w-50  mx-auto border p-4 my-4"> #}
+    <div class="card-group my-auto">
+        <div class="card mx-auto my-4" style="max-width: 30rem ;">
+            <div class="card-body">
+                <h1>Publish a post </h1>
+                {% if userPost.errorsPost is not empty %}
+                    <p>Errors:</p>
+                    <ul>
+                        {% for error in userPost.errorsPost %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 
-        <h1>Publish a post </h1>
 
-        {% if userPost.errorsPost is not empty %}
-            <p>Errors:</p>
-            <ul>
-                {% for error in userPost.errorsPost %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-
-        <form method="post" action="/post/create" id="formSignup">
-            
-            <div class="form-group">
-                <label for="inputTitle">Title</label>
-                <input id="inputTitle" name="title" placeholder="Title" autofocus required class="form-control" />
+                <form method="post" action="/post/create" id="formSignup">
+                    
+                    <div class="form-group">
+                        <label for="inputTitle">Title</label>
+                        <input id="inputTitle" name="title" placeholder="Title" autofocus required class="form-control" />
+                    </div>
+                    <!-- <div class="form-group">
+                        <input id="inputTitle" name="title" placeholder="Title" value="" required class="form-control" hidden/>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="sel1">Select Post Type:</label>
+                        <select class="form-control" id="sel1" name="type" required>
+                            {% if current_user.catogery == "Signup as student" %}
+                            <option value="Seeking for invester">Seeking for invester</option>
+                            {% elseif current_user.catogery == "Signup as invester" %}
+                            <option value="Seeking to invest">Seeking to invest</option>
+                            {% endif %}
+                            <option value="Emergency Help">Emergency Help</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPostDetails">Describe your post brifely.</label>
+                        <textarea rows="10" id="inputPostDetails" name="details" placeholder="If you are searching for invester describe your idea. If you are asking for help describe what kind of help you need." 
+                        required type="text" class="form-control" ></textarea>
+                    </div>        
+                    
+                    <button type="submit" class="btn logbtn m-1">Publish post</button>
+                    <a class="btn logbtn m-1" href="/post/general">Cancle</a>
+                </form>
             </div>
-            <!-- <div class="form-group">
-                <input id="inputTitle" name="title" placeholder="Title" value="" required class="form-control" hidden/>
-            </div> -->
-            <div class="form-group">
-                <label for="sel1">Select Post Type:</label>
-                <select class="form-control" id="sel1" name="type" required>
-                    {% if current_user.catogery == "Signup as student" %}
-                    <option value="Seeking for invester">Seeking for invester</option>
-                    {% elseif current_user.catogery == "Signup as invester" %}
-                    <option value="Seeking to invest">Seeking to invest</option>
-                    {% endif %}
-                    <option value="Emergency Help">Emergency Help</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="inputPostDetails">Describe your post brifely.</label>
-                <textarea rows="10" id="inputPostDetails" name="details" placeholder="If you are searching for invester describe your idea. If you are asking for help describe what kind of help you need." 
-                required type="text" class="form-control" ></textarea>
-            </div>        
-            
-            <button type="submit" class="btn logbtn m-1">Publish post</button>
-            <a class="btn logbtn m-1" href="/post/show">Cancle</a>
-            {% if current_user.name == "Basanta Sharma gyawali" %}
-            <a class="btn logbtn m-1" href="#">Send to Mentors for help</a>
-            {% endif %}
-        </form>
-        
+        </div>        
     </div>
 {% endblock %}

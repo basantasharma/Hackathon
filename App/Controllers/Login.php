@@ -78,6 +78,6 @@ class Login extends \Core\Controller
     {
         Flash::addMessage('Logout successful');
 
-        $this->redirect('/post/show');
+        $this->redirect('/post/emergency');
     }
 }

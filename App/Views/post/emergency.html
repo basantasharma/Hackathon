@@ -6,7 +6,7 @@
 
     {% if current_user.catogery == "Signup as student" %}
         <p class="alert alert-info m-1 p-0">
-            Hello <b>{{ current_user.name }} </b>you are viewing post as Student. Only emergency post can be found here.
+            Hello {{ current_user.name }} you are viewing post as Student. Only emergency post can be found here.
         </p>
         
     {% elseif current_user.catogery == "Signup as invester" %}
@@ -31,18 +31,24 @@
                 {% endif %}
                 {% for details in postDetails %}
                     {% if details.catogery == 'Emergency Help' %}
-                        <div class="card text-dark bg-orange mb-3">
+                        <div class="card mb-3">
                             <div class="card-header">
                                 {% if current_user.id == details.user_id %}
-                                    <a class="logbtn" href="/profile/show"><b>{{ details.name }}</b></a> posted on <b>{{ details.catogery }}</b>
-                                    <a class="logbtn" href="/post/edit?post_id={{ details.id }}">edit</a>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="/profile/show"><b>{{ details.name }}</b></a> <span style="color: rgb(105,105,105);"> Posted on </span><b>{{ details.catogery }}</b>
+                                        </div>
+                                        <div class="col-2">
+                                            <a class="btn logbtn" style="justify-content: end;" href="/post/edit?post_id={{ details.id }}">edit</a>
+                                        </div>
+                                    </div>
                                 {% else %}
-                                    <a class="logbtn" href="/people/profile-visit?id={{ details.user_id }}"><b>{{ details.name }}</b></a> posted on <b>{{ details.catogery }}</b>
+                                    <a href="/people/profile-visit?id={{ details.user_id }}"><b>{{ details.name }}</b></a><span style="color: rgb(105,105,105);"> Posted on </span><b>{{ details.catogery }}</b>
                                 {% endif %}
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">{{ details.title }}</h3>
-                                <p class="card-text">{{ details.discription }}</p>
+                                <p class="card-text text-white">{{ details.discription }}</p>
                             </div>
                             {% if details.user_id != current_user.id %}
                             <div class="card-footer"><a class="btn logbtn" href="#">Help</a></div>

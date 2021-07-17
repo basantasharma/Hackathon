@@ -79,7 +79,7 @@ class UserPost extends \Core\Model
     public static function getPost()
     {
         $sql = 'SELECT up.*, u.name FROM user_posts AS up INNER JOIN users AS u
-        WHERE up.user_id = u.id';
+        WHERE up.user_id = u.id ORDER BY up.date DESC';
 
         $db = static::getDB();
         $stmt = $db->prepare($sql);
