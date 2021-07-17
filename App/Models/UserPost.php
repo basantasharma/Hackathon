@@ -168,7 +168,7 @@ class UserPost extends \Core\Model
     //used for profile viewing and many more
     public static function getPostByUserId($id)
     {
-        $sql = 'SELECT * FROM user_posts WHERE user_id =:user_id';
+        $sql = 'SELECT * FROM user_posts WHERE user_id =:user_id ORDER BY date DESC';
 
         $db = static::getDB();
         $stmt = $db->prepare($sql);
